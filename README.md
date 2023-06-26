@@ -13,19 +13,25 @@ php artisan db:seed
 
 ## First Stored Procedure To Create
 USE laraMssqlApp
-GO
 
+GO
 SET ANSI_NULLS ON
 GO
+
+
 SET QUOTED_IDENTIFIER ON
 GO
+
+
 CREATE PROCEDURE uspGetBigSpenders
 AS BEGIN
-    select top 10 count(*) as total,c.name as full_name from orders o
-	left join customers c on o.customer_id = c.id
-	group by o.total_amount, c.name
-	order by total_amount desc
+  SELECT TOP 10 SUM(o.total_amount) AS total,c.name AS full_name FROM orders o
+	LEFT JOIN customers c ON o.customer_id = c.id
+	GROUP BY o.total_amount, c.name
+	ORDER BY total_amount DESC
 END
+
+EXEC uspGetBigSpenders
 
 ## Second Stored Procedure To Create
 USE laraMssqlApp
