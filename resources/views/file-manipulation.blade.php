@@ -15,7 +15,7 @@
                             <label for="file_manipulation" class="col-md-4 col-form-label text-md-end">{{ __('Report Type') }}</label>
 
                             <div class="col-md-6">
-                                <input type="file" id="file_manipulation" class="form-control" name="file_manipulation" accept=".csv, .txt, .xlsx"  required>
+                                <input type="file" id="file_manipulation" class="form-control @error('file_manipulation') is-invalid @enderror" name="file_manipulation" accept=".csv, .txt, .xlsx"  required>
                                     
 
                                 @error('file_manipulation')

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\FileManipulationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/file-manipulation', [FileManipulationController::class, 'store']);
 Route::post('/report', [ReportController::class, 'index']);
 Route::post('/ticket', [TicketController::class, 'store']);
 Route::get('/ticket', fn() => view('ticket'));
