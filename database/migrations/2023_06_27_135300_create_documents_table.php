@@ -14,9 +14,11 @@ class CreateDocumentsTable extends Migration
     public function up()
     {
         Schema::create('documents', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->unsignedInteger('interest_id');
             $table->foreign('interest_id')->references('id')->on('interests');
+            $table->string('file_name');
+            $table->string('file');
             $table->timestamps();
         });
     }

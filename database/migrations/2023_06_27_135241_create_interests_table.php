@@ -14,7 +14,7 @@ class CreateInterestsTable extends Migration
     public function up()
     {
         Schema::create('interests', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('interest_type');
             $table->unsignedInteger('personal_detail_id');
             $table->foreign('personal_detail_id')->references('id')->on('personal_details');
