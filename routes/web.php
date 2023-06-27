@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\TicketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +23,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/report', [ReportController::class, 'index']);
-Route::get('/php-version', fn() => phpinfo());
+Route::post('/ticket', [TicketController::class, 'store']);
+Route::get('/ticket', fn() => view('ticket'));
+Route::get('/file-manipulation', fn()=>view('file-manipulation'));
+Route::get('/complex-queries', fn() => view('complex-queries'));

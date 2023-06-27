@@ -14,7 +14,9 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <a href="{{url('ticket')}}">Log Ticket</a>
+                    <a href="{{url('complex-queries')}}">Complex Queries</a>
+                    <a href="{{url('file-manipulation')}}">File Manipulation</a>
                 </div>
             </div>
         </div>
