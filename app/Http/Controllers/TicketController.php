@@ -19,6 +19,19 @@ class TicketController extends Controller
         $this->db = $db;
         $this->ticket = $ticket;
     }
+
+        /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexTickets()
+    {
+        $tickets = $this->ticket->all();
+
+        return view('tickets', compact('tickets'));
+    }
+
     /**
      * Display a listing of the resource.
      *

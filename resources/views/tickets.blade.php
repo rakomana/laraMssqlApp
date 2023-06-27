@@ -1,26 +1,32 @@
 @extends('layouts.app')
 
 @section('content')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
+<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             
-            <div class="d-grid justify-content-center mb-5">
-                <a class="btn btn-primary" href="{{url('/')}}">Reports</a>
-            </div>
             <div class="card">
-                <div class="card-header">{{$report_heading}}</div>
+                <div class="card-header"></div>
 
                 <div class="card-body">
-                <table class="table">
+                <table class="table" id="table">
                     <tr>
-                        <th>Customer Name</th>
-                        <th>Total Amount</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                        <th>Query</th>
+                        <th>Coordinates</th>
+                        <th>Ticket No</th>
                     </tr>
-                    @foreach($order_details as $order_detail)
+                    @foreach($tickets as $ticket)
                     <tr>
-                        <td>{{$order_detail->full_name}}</td>
-                        <td>{{$order_detail->total}}</td>
+                        <td>{{$ticket->category}}</td>
+                        <td>{{$ticket->status}}</td>
+                        <td>{{$ticket->query}}</td>
+                        <td>{{$ticket->coordinates}}</td>
+                        <td>{{$ticket->ticket_no}}</td>
                     </tr>
                     @endforeach
                 </table>
@@ -29,4 +35,10 @@
         </div>
     </div>
 </div>
+
+<script>
+$(document).ready(function() {
+    $('#table').DataTable();
+  });
+</script>
 @endsection

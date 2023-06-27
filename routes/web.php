@@ -27,5 +27,6 @@ Route::post('/file-manipulation', [FileManipulationController::class, 'store']);
 Route::post('/report', [ReportController::class, 'index']);
 Route::post('/ticket', [TicketController::class, 'store']);
 Route::get('/ticket', fn() => view('ticket'));
+Route::get('/tickets', [TicketController::class, 'indexTickets']);
 Route::get('/file-manipulation', fn()=>view('file-manipulation'));
 Route::get('/complex-queries', fn() => view('complex-queries'));
