@@ -4,6 +4,28 @@ composer run-script post-root-package-install
 
 composer run-script post-create-project-cmd
 
+## DataBase Connections
+create database, can name it anything e.g "laraMssqlApp", add the configuration to .env
+run the commands below to seed data with dummy data
+use
+
+for login:
+	email: princerakomana@gmail.com
+	password: password
+
+for reports: 
+	"/"
+
+for tickets: 
+	"/ticket",
+	"/tickets"
+
+for interest:
+	"/complex-queries"
+
+for file manipulations
+	"file-manipulation"
+
 php artisan migrate
 
 php artisan db:seed
